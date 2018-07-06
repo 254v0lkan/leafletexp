@@ -1,0 +1,50 @@
+<html><head>
+	
+	<title>Quick Start - Leaflet</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico">
+
+
+    <link rel="stylesheet" href="leaflet.css"></script>
+
+
+	
+</head>
+<body>
+
+
+
+<div id="map" style="width: 100%; height: 700px"></div>
+<<script src="leaflet.js"></script>
+<script>
+
+	var map = L.map('map').setView([-1.264470, 36.791814], 15);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+L.marker([-1.264470, 36.791814]).addTo(map)
+    .bindPopup('Open in Your App<br> <div onclick="mapsSelector()" >here</div>')
+    .openPopup();
+
+    function mapsSelector() {
+  if /* if we're on iOS, open in Apple Maps */
+    ((navigator.platform.indexOf("iPhone") != -1) || 
+     (navigator.platform.indexOf("iPod") != -1) || 
+     (navigator.platform.indexOf("iPad") != -1))
+    window.open("maps://maps.google.com/maps?daddr=-1.264470,36.791814&amp;ll=");
+
+  else /* else use Google */
+    window.open("https://maps.google.com/maps?daddr=-1.264470,36.791814&amp;ll=");
+}
+</script>
+
+
+
+
+
+</body></html>
